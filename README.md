@@ -1,1 +1,3 @@
 # BiisiGeneraattori
+
+biisigeneraattori kehitteillä.
