@@ -18,7 +18,6 @@ namespace BiisiGeneraattori
     {
         public void printAll()
         {
-
             var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
             {
                 HasHeaderRecord = false,
@@ -36,10 +35,35 @@ namespace BiisiGeneraattori
                 var Artist = csvReader.GetField(1);
                 var Biisi = csvReader.GetField(2);
                 var Youtube = csvReader.GetField(3);
-
-                // Console.WriteLine($"{Row}# Albumi: {Artist} : {Album} --- Julkaistu: {Publish} --- Record Label: {Label}");
+                // tulostaa listan
                 Console.WriteLine($"Artisti: {Artist} -- Kappale: {Biisi} -- Link to Youtube: {Youtube}");
             }
         }
+        public void searchWord()
+        {
+            while (true)
+            {
+                Console.WriteLine("Anna jokin sana, etsitään kappaleet listalta! Q = Quit.");
+                Console.WriteLine("Hakusanasi: ");
+                string NameCheck = Console.ReadLine();
+                string[] names = File.ReadAllLines("kappalelista.csv");
+                foreach (string x in names)
+                {
+                    if (x.Contains(NameCheck))
+                    {
+                        string[] pieces = x.Split(";");
+                        Console.WriteLine("[ " + NameCheck + " ] Löytyy seuraavat kappaleet -> Artisti ja kappale: " + pieces[1] + " - " + pieces[2] + " -> Youtube linkki: " + pieces[3]);
+
+                        //Console.WriteLine("[ " + NameCheck + " ] Löytyy seuraavat kappaleet -> [" + x + "] ");
+                    }
+                }
+
+                if (NameCheck == "Q")
+                {
+                    break;
+                }
+            }
+        }
     }
+
 }
