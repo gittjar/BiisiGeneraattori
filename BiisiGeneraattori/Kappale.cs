@@ -43,7 +43,7 @@ namespace BiisiGeneraattori
         {
             while (true)
             {
-                Console.WriteLine("Anna jokin sana, etsitään kappaleet listalta! Q = Quit.");
+                Console.WriteLine("Anna jokin sana, etsitään kappaleet listalta! [ Q ] = Quit.");
                 Console.WriteLine("Hakusanasi: ");
                 string NameCheck = Console.ReadLine();
                 string[] names = File.ReadAllLines("kappalelista.csv");
@@ -92,12 +92,59 @@ namespace BiisiGeneraattori
                 }
 
 
-                
+
             }
         }
 
+        public void AddKappale()
+        {
+            Console.WriteLine("Lisää uusi kappale!");
+            List<string> newLines = new List<string>();
 
+            Console.WriteLine("Anna artistin nimi: ");
+            string AddArtisti = Console.ReadLine();
+
+            Console.WriteLine($"Anna {AddArtisti}:n kappaleen nimi: ");
+            string AddKappale = Console.ReadLine();
+
+            Console.WriteLine($"Anna [{AddArtisti}] - [{AddKappale}] linkki Youtubeen seuraavaksi:");
+            string AddYoutubeLink = Console.ReadLine();
+
+
+
+            Console.WriteLine($"Lisätäänkö [{AddArtisti}] - [{AddKappale}] varmasti kappaletietokantaan?");
+
+            while (true)
+            {
+                Console.WriteLine("[ 1 ] - Jatka [ 0 ] - Lopeta");
+                string question = Console.ReadLine();
+
+                if (question == "1")
+                {
+
+                    // huom add edessä pitää olla järjestysnumero, muuten failaa haku
+                    // Järjestystä voi muuttaa valitse {} sisään haettava taulu!
+
+                    newLines.Add($"99;{AddArtisti};{AddKappale};{AddYoutubeLink}");
+
+                    File.AppendAllLines("kappalelista.csv", newLines);
+
+                    Console.WriteLine("Onneksi olkoon!");
+                    Console.WriteLine($"Lisätty {AddArtisti} - {AddKappale} onnistuneesti Biisigeneraattoriin!");
+            
+
+                }
+
+                else if (question == "0")
+                {
+                    break;
+                }
+
+
+            }
+
+        }
 
     }
-
 }
+

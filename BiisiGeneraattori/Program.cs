@@ -15,8 +15,8 @@ namespace BiisiGeneraattori
             while (true)
             {
                 Console.WriteLine(" Komennot:");
-                Console.WriteLine(" [ 1 ] = Kappalelista\n [ 2 ] = Etsi hakusanalla\n [ 3 ] = Valitse satunnainen albumi" +
-                    "\n [ 4 ] = Lisää kappale\n [ 5 ] = Poista kappale\n [ 0 ] = Lopeta");
+                Console.WriteLine(" [ 1 ] - Kappalelista\n [ 2 ] - Etsi hakusanalla\n [ 3 ] - Valitse satunnainen kappale" +
+                    "\n [ 4 ] - Lisää kappale\n [ 5 ] - Poista kappale\n [ 0 ] - Lopeta");
                 string question = Console.ReadLine();
 
                 if (question == "1")
@@ -46,8 +46,8 @@ namespace BiisiGeneraattori
                 }
                 else if (question == "4")
                 {
-                    Program lisaa = new Program();
-                 //   lisaa.AddAlbum();
+                    Kappale LisaaKappale = new Kappale();
+                    LisaaKappale.AddKappale();
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
