@@ -64,6 +64,40 @@ namespace BiisiGeneraattori
                 }
             }
         }
+
+        public void ShuffleAlbum()
+        {
+            Console.WriteLine("Olen kappaleiden arpoja!");
+            // MSDN siteltä löydetty random generaattori
+            int iLineCount = File.ReadAllLines("kappalelista.csv").Length;
+            System.Random RandNum = new System.Random();
+            int iRandomNumber = RandNum.Next(0, iLineCount);
+            int iCounter = 0;
+            string sName = string.Empty;
+
+            using (StreamReader oReader = new StreamReader("kappalelista.csv"))
+
+            {
+                string sLine = string.Empty;
+                while (!oReader.EndOfStream)
+                {
+                    sLine = oReader.ReadLine();
+                    iCounter++;
+                    if (iCounter == iRandomNumber)
+                    {
+                        string[] palaset = sLine.Split(';');
+                        Console.WriteLine($"Artisti: {palaset[1]} -- Kappale: {palaset[2]} -- Linkkisi Youtubeen: {palaset[3]}");
+                        break;
+                    }
+                }
+
+
+                
+            }
+        }
+
+
+
     }
 
 }

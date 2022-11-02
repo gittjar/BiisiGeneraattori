@@ -9,16 +9,15 @@ namespace BiisiGeneraattori
         public static void Main(string[] args)
         {
             Console.WriteLine("Biisigeneraattori v.1.0");
-
+            //lisätty edustaväri
+            Console.ForegroundColor = ConsoleColor.Green;
 
             while (true)
             {
-                Console.WriteLine("Komennot:");
+                Console.WriteLine(" Komennot:");
                 Console.WriteLine(" [ 1 ] = Kappalelista\n [ 2 ] = Etsi hakusanalla\n [ 3 ] = Valitse satunnainen albumi" +
                     "\n [ 4 ] = Lisää kappale\n [ 5 ] = Poista kappale\n [ 0 ] = Lopeta");
                 string question = Console.ReadLine();
-
-
 
                 if (question == "1")
                 {
@@ -37,13 +36,10 @@ namespace BiisiGeneraattori
                     Console.ReadKey();
                 }
 
-
-
-
                 else if (question == "3")
                 {
-                    Program sekoitus = new Program();
-                  //  sekoitus.ShuffleAlbum();
+                    Kappale SatunnainenKappale = new Kappale();
+                    SatunnainenKappale.ShuffleAlbum();
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
