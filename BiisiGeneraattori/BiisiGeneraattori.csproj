@@ -9,8 +9,11 @@
 
   <ItemGroup>
     <None Remove="CsvHelper" />
+    <None Remove="AutoLink" />
+    <None Remove="EASendMail" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="29.0.0" />
+    <PackageReference Include="EASendMail" Version="7.9.1" />
   </ItemGroup>
 </Project>

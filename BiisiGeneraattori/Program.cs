@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 
 namespace BiisiGeneraattori
 {
@@ -7,76 +6,99 @@ namespace BiisiGeneraattori
     {
        
 
-
         public static void Main(string[] args)
         {
+            //lisätty edustaväri
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Biisigeneraattori v.1.0");
+            Console.ForegroundColor = ConsoleColor.Green;
 
+            
 
             while (true)
             {
-                Console.WriteLine(" [ 1 ] = Kappalelista.\n [ 2 ] = Valitse satunnainen albumi." +
-                    "\n [ 3 ] = Lisää albumi.\n [ 4 ] = Poista albumi.\n [ 0 ] = Lopeta.");
+                Console.WriteLine(" Komennot:");
+                Console.WriteLine(" [ 1 ] - Kappalelista\n [ 2 ] - Etsi hakusanalla\n [ 3 ] - Valitse satunnainen kappale" +
+                    "\n [ 4 ] - Lisää kappale\n [ 5 ] - Poista kappale\n [ 6 ] - Contact\n [ 0 ] - Lopeta");
                 string question = Console.ReadLine();
-
-
 
                 if (question == "1")
                 {
 
-                    Kappale albumit = new Kappale();
-                    albumit.printAll();
+                    Kappale KaikkiBiisit = new Kappale();
+                    // metodin kutsu Kappale -luokasta
+                    KaikkiBiisit.printAll();
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
                 }
                 else if (question == "2")
                 {
-                    Program sekoitus = new Program();
-                  //  sekoitus.ShuffleAlbum();
-                    Console.WriteLine("");
+                    Kappale HakuSana = new Kappale();
+                    HakuSana.searchWord();
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
                 }
+
                 else if (question == "3")
                 {
-                    Program lisaa = new Program();
-                 //   lisaa.AddAlbum();
+                    Kappale SatunnainenKappale = new Kappale();
+                    SatunnainenKappale.ShuffleAlbum();
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
                 }
                 else if (question == "4")
                 {
-                    Program poista = new Program();
-                   // poista.RemoveAlbum();
+                    Kappale LisaaKappale = new Kappale();
+                    LisaaKappale.AddKappale();
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
                 }
+                else if (question == "5")
+                {
+                    Kappale PoistaKappale = new Kappale();
+                    PoistaKappale.RemoveKappale();
+                    Console.WriteLine("");
+                    Console.WriteLine("Press any key to continue!");
+                    Console.ReadKey();
+                }
+                else if (question == "6")
+                   {
+                       Kappale OtaYhteys = new Kappale();
+                       OtaYhteys.ContactForm();
+                       Console.WriteLine("");
+                       Console.WriteLine("Press any key to continue!");
+                       Console.ReadKey();
+                   } 
+
+
+
+
+
 
 
                 else if (question == "0")
                 {
-                    Console.WriteLine("You go exit!");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("You go exit!");
+                    Console.WriteLine("You go exit. Goodbye. See you later!");
                     Console.WriteLine("Press enter to quit.");
                     break;
                 }
 
             }
-            Console.WriteLine("paina Enter lopetaaksesi ohjelma.");
+
+
+
+
+
+
+
+
+           
             Console.ReadLine();
 
 
         }
-
-
-
 
     }
 }
