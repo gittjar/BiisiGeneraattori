@@ -1,22 +1,25 @@
-﻿using System;
-
+﻿
 
 namespace BiisiGeneraattori
 {
     public class Program
     {
+       
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Biisigeneraattori v.1.0");
             //lisätty edustaväri
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Biisigeneraattori v.1.0");
             Console.ForegroundColor = ConsoleColor.Green;
+
+            
 
             while (true)
             {
                 Console.WriteLine(" Komennot:");
                 Console.WriteLine(" [ 1 ] - Kappalelista\n [ 2 ] - Etsi hakusanalla\n [ 3 ] - Valitse satunnainen kappale" +
-                    "\n [ 4 ] - Lisää kappale\n [ 5 ] - Poista kappale\n [ 0 ] - Lopeta");
+                    "\n [ 4 ] - Lisää kappale\n [ 5 ] - Poista kappale\n [ 6 ] - Contact\n [ 0 ] - Lopeta");
                 string question = Console.ReadLine();
 
                 if (question == "1")
@@ -54,37 +57,48 @@ namespace BiisiGeneraattori
                 }
                 else if (question == "5")
                 {
-                    Program poista = new Program();
-                   // poista.RemoveAlbum();
+                    Kappale PoistaKappale = new Kappale();
+                    PoistaKappale.RemoveKappale();
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to continue!");
                     Console.ReadKey();
                 }
+                else if (question == "6")
+                   {
+                       Kappale OtaYhteys = new Kappale();
+                       OtaYhteys.ContactForm();
+                       Console.WriteLine("");
+                       Console.WriteLine("Press any key to continue!");
+                       Console.ReadKey();
+                   } 
+
+
+
+
+
 
 
                 else if (question == "0")
                 {
-                    Console.WriteLine("You go exit! Goodbye.");
+                    Console.WriteLine("You go exit. Goodbye. See you later!");
                     Console.WriteLine("Press enter to quit.");
                     break;
                 }
-              /*  else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("You go exit!");
-                    Console.WriteLine("Press enter to quit.");
-                    break;
-                }*/
 
             }
-           /* Console.WriteLine("paina Enter lopetaaksesi ohjelma.");*/
+
+
+
+
+
+
+
+
+           
             Console.ReadLine();
 
 
         }
-
-
-
 
     }
 }
