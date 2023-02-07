@@ -8,3 +8,7 @@ With Biisigenerator you can shuffle Youtube tracks, add tracks and delete tracks
 
 Notice! Feedbackform needs to work properly your Gmail -account information (email address and key -> link in code.)
 
+git clone https://github.com/gittjar/BiisiGeneraattori.git
+
+Open in Visual Studio and run!
+
